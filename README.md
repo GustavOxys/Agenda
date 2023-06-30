@@ -96,3 +96,25 @@ e criar uma variavel context = {'contacts' : 'contacts'}
 return render(request, 'contact/index.html', context)
 ```
 
+Dentro de index.html
+
+```
+Apagar conteudo dentro de block
+Testar tudo sem as classes
+Criar uma div com a class "responsive-table" 
+Dentro da div criar uma table com classe "contacts-table"
+Dentro da table criar uma caption com classe "table-caption" com título 'Contacts'
+
+Dentro de table criar um thead
+Dentro de thead criar tr com classe "table-row table-row-header"
+Dentro de tr criar 5 th com classe "table-header" id, fn, ln, phone, email
+
+Dentro de table criar tbody
+dentro tbody criar {% for contact in contacts%}
+dentro de for criar tr classe "table-row"
+dentro tr criar td class "table-cel"
+dentro de td criar <a> class "table-link"
+por fim dentro de a colocar os dados {{contact.}}
+
+
+```

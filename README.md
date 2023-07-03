@@ -51,7 +51,8 @@ Registrar esse model em admin usando decorator
 
 ```
 @admin.register(contact)
-criando a classe Contact_admin com opções de list display, links, pagination, editable, etc...
+Criar a classe Contact_admin com opções de list display, links, pagination, editable, etc...
+Registrar category e criar Category_admin
 ```
 
 dentro de settings
@@ -60,6 +61,8 @@ dentro de settings
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+Add a templates o base_templates
 ```
 
 python manage.py collectstatic
@@ -84,14 +87,20 @@ Criar em project
 ```
 local_settings.py para arquivos locais que não irão p/ github
 ```
-Criar arquivo de style.css dentro de basestatic
+Criar arquivo de style.css dentro de base_static/global/css
 
-No arquivo base.html criar uma main com a class content (uma classe de estilização css dentro de style.css)
+dentro de settings STATICFILES_DIRS = [BASE_DIR / 'base_static']
+
+Criar base.html dentro de base_templates/global
+
+No arquivo base.html criar uma main com a class content (uma classe de estilização dentro de style.css)
+Criar um bloco de content
+Dentro da head criar um link com rel stylesheet e href de static de global/css/style.css
 
 Dentro de contact.views.py
 
 ```
-Importar o Contact, dentro da função index criar uma variavel contacts = Contact.objects.all()
+Importar o Contact, dentro da função index criar uma variavel contacts = Contact.filter(show=True).order_by('-id')
 e criar uma variavel context = {'contacts' : 'contacts'}
 return render(request, 'contact/index.html', context)
 ```
@@ -112,9 +121,22 @@ Dentro de tr criar 5 th com classe "table-header" id, fn, ln, phone, email
 Dentro de table criar tbody
 dentro tbody criar {% for contact in contacts%}
 dentro de for criar tr classe "table-row"
-dentro tr criar td class "table-cel"
+dentro tr criar 5 td class "table-cel"
 dentro de td criar <a> class "table-link"
 por fim dentro de a colocar os dados {{contact.}}
 
 
+
+
+Criar contact.html dentro de templates/contact
+deve extender de base e ter um block content
+com div single-contact dentro h1 single-contact-name e {{contact.fn}}{{contact.ln}}
+E dentro da div ter <p><b>ID:</b> {{contact.id}}</p> p/ tds os models
+
+nas views criar funcao contact com parametro contact_id, com variavel single_contact com queryset GET
+nas urls add novo path p/ contact com '<int:contact_id>/'
+
+dentro de index.html em cada href {% url 'contact:contact' contact.id %}
+
+Trocar no contact views single_contact = get_object_or_404(Contact, id=contact_id, show=True)
 ```

@@ -140,3 +140,22 @@ dentro de index.html em cada href {% url 'contact:contact' contact.id %}
 
 Trocar no contact views single_contact = get_object_or_404(Contact, id=contact_id, show=True)
 ```
+
+Em base.html em body acima de main criar uma header.header e dentro uma h1.header-heading com um link
+a.header-link
+o link vai ser para a pagina inicial(index)(usando {% url 'contact:index' %})
+
+Ainda dentro de header criar uma nav.menu, ul.menu-list, li.menu-item, a.menu-link e duplicar mais uma vez o li.menu-item para ter 2 itens no menu
+
+ainda dentro de header criar uma div search.search com um form:get com input.search-input com atributos type="search", placeholder="Search", id="search", name="q"
+
+
+Se Tiver alguma tag muito grande(apenas se estiver grande) pode adicionar um diretorio dentro de global com nome partials e criar por exemplo o <nav> e criar um arquivo _header.html e depois apenas ir no base e colocar um {% include 'global/partials/_header.html' %}
+
+Faça também com a head
+
+Dentro da _head.html no titulo colocar {{ site_title }} e então nos context das views adicionar o site_title, no index colocar 'site_title' : Contacts -, e no contact add uma variavel com nome do contato inteiro site_title = f'{single_contact.first_name} {single_contact.last_name} - ' e no context 'site_title': site_title   
+
+Criar nova view search
+Criar url search
+no action do search colocar a url "{% url 'contact:search' %}"

@@ -110,7 +110,7 @@ Inside index.html
 ```
 
 Extends from base, create a block content with a div responsible-table
-the create a table with contacts-table
+then create a table with contacts-table
 the caption is 'Planner' (table-caption)
 
 The head is with a table row (table-row table-row-header)

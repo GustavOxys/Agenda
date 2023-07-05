@@ -156,6 +156,48 @@ Faça também com a head
 
 Dentro da _head.html no titulo colocar {{ site_title }} e então nos context das views adicionar o site_title, no index colocar 'site_title' : Contacts -, e no contact add uma variavel com nome do contato inteiro site_title = f'{single_contact.first_name} {single_contact.last_name} - ' e no context 'site_title': site_title   
 
+FORM DE PESQUISA (SEARCH)
+
 Criar nova view search
 Criar url search
 no action do search colocar a url "{% url 'contact:search' %}"
+
+coletar o valor da pesquisa com uma variavel dentro da view search
+search_value = request.GET.get('q', '').strip()
+
+Criar um if caso a pessoa não digite nenhum valor na pesquisa para voltar a pagina inicial com redirect
+
+if search_value == '':
+        return redirect('contact:index')
+
+Importar  django.db.models import Q
+Adicionar um novo filter do search Q(first_name__icontains=search_value) | Q(last_name__icontains=search_value) | 
+phone e email com icontains
+
+Adicionar ao form o atributo value = "{{ request.GET.q.strip }}"
+
+Adicionar um {% if contacts %} no index.html para se não houver um contato na pesquisa ele não mostre uma tabela, e colocar um  {% else %} com div.single-contact, h1.single-contact-name > No Contacts Found (nao esquecer do endif no final)
+   
+
+PAGINACAO
+
+Importar nas views from django.core.paginator import Paginator
+Adicionar ao view index 
+    paginator = Paginator(contacts, 15)
+    page_number = request.GET.get("page")
+    contacts = paginator.get_page(page_number)
+
+Adicionar tambem a view do search
+
+copiar do django pagination documentation toda a div do quarto codigo
+e criar um arquivo pagination.html no partials
+e antes da div colocar um {% if contacts %} e trocar as variaveis page_obj por contacts (ctrl + d para selecionar varios)
+
+Depois dar include no base.html dentro de main
+
+Pronto, está quase tudo certo, porém ao enviar algo no search e dar next page ele vai sumir a url e não queremos isso então va ao template pagination e coloque &q={{ request.GET.q.strip´}}" depois do numero da page e adicione em todos os href... exemplo:
+href="?page=1&q={{ request.GET.q.strip }}"
+
+
+
+

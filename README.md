@@ -199,5 +199,11 @@ Pronto, está quase tudo certo, porém ao enviar algo no search e dar next page 
 href="?page=1&q={{ request.GET.q.strip }}"
 
 
+Em urls path('contact/create', views.create, name= 'create'),
+
+Criar contact_forms.py em views, e importar no init
+criar create.html em contact/templates
+
+
 
 

@@ -1,0 +1,8 @@
+Djaneiro
+Material Icon Theme
+Om Theme (A Darker Dracula Theme)
+Pylance
+Python
+Python Type Hint
+Python Debugger
+Jupyter

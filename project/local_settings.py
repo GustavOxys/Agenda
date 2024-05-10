@@ -1,1 +1,1 @@
-SECRET_KEY = 'CHANGE-ME'
+SECRET_KEY = 'senha_forte_qualquer'

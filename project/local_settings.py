@@ -1,4 +1,4 @@
-'''SECRET_KEY = '#mDH?Xu_zqT_XpxcJ;etXw,j*=n?[Ek6E$&l6T2^-SQc:&94vJR/EYsm0I8Nf'
+SECRET_KEY = '#mDH?Xu_zqT_XpxcJ;etXw,j*=n?[Ek6E$&l6T2^-SQc:&94vJR/EYsm0I8Nf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -14,4 +14,4 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}'''
+}

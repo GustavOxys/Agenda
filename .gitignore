@@ -7,7 +7,7 @@ db.sqlite3
 media
 media/
 static/
-project/local.settings.py
+
 
 # Backup files # 
 *.bak 
@@ -107,6 +107,8 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
+local_settings.py
+project/local_settings.py
 local_settings.py
 
 # mkdocs documentation 

@@ -1,5 +1,3 @@
-markdown
-
 # Agenda de Contatos
 
 Este é um projeto de agenda de contatos desenvolvido com Django, como parte do curso do Luiz Otávio Miranda. O objetivo do projeto é permitir que os usuários se registrem, façam login e gerenciem seus contatos de forma simples e eficiente.
@@ -23,6 +21,10 @@ Este é um projeto de agenda de contatos desenvolvido com Django, como parte do 
 - Python
 - HTML/CSS
 - Banco de dados (PostgreSQL)
+- **Deploy**:
+  - **Google Cloud**: A aplicação está hospedada no Google Cloud Platform.
+  - **Gunicorn**: Servidor WSGI para aplicações Python.
+  - **Nginx**: Servidor web para servir a aplicação e gerenciar as requisições.
 
 ## Instalação
 
@@ -60,8 +62,5 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 Contribuições
 Sinta-se à vontade para fazer um fork do projeto e contribuir com melhorias!
-
-Licença
-Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
 
 Agradeço ao Luiz Otávio Miranda pelo excelente curso que me ajudou a desenvolver este projeto.

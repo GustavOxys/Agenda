@@ -1,158 +1,66 @@
-How to create a Planner with Django
+# Contact Agenda
 
-Configure Virtual Envirement
+This is a contact agenda project developed with Django, as part of Luiz Otávio Miranda's course. The goal of the project is to allow users to register, log in, and manage their contacts easily and efficiently.
 
-```
-Install Django
-Start the project with name project
-Create app contact
-```
+## Features
 
-Configure git
+- **Registration and Login**: Users can register and log in to the application.
+- **Contact Management**: Users can create, edit, and delete contacts.
+- **Contact Information**:
+  - First Name
+  - Last Name
+  - Phone Number
+  - Email
+  - Contact Photo
+- **Search System**: Users can search for contacts by name, phone number, or email.
+- **Data Sharing**: All contacts are shared among users who log in.
 
-```
-git config --global user.name 'name'
-git config --global user.email 'your_email@gmail.com'
-git config --global init.defaultBranch main
-# Configure the .gitignore
-git init
-git add .
-git commit -m 'Message'
-git remote add origin URL_DO_GIT
-git push origin main
-```
+## Technologies Used
 
-Migrate your db
+- Django
+- Python
+- HTML/CSS
+- Database (PostgreSQL)
+- **Deployment**:
+  - **Google Cloud**: The application is hosted on Google Cloud Platform.
+  - **Gunicorn**: WSGI server for Python applications.
+  - **Nginx**: Web server used to serve the application and manage requests.
 
-```
-python manage.py makemigrations
-python manage.py migrate
-```
+## Installation
 
-Create your superuser
+To run the project locally, follow the steps below:
 
-```
-python manage.py createsuperuser
-python manage.py changepassword USERNAME
-```
-Create directory templates/contact inside contact with file index.html
-Create views and urls.py inside app contact
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GustavOxys/Agenda.git
 
-In urls of project make include of url of contact
+2. Navigate to the project directory:
+    ```bash
+    cd agenda
 
-Create model contact
+3. Create a virtual environment and activate it:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # Para Linux/Mac
+    venv\Scripts\activate  # Para Windows
 
-```
-With first_name, last_name, phone, email, created_date, description, show, picture(blank e upload_to=''), category (foreignkey of class Category, on_delete=models.SET_NULL, blank=True, null=True), owner(foreignkey of User).
-```
-Register this model in admin using decorator
+4. Install the dependencies:
+    ```bash
+    pip install -r requirements.txt
 
-```
-@admin.register(contact)
-Create a class Contact_admin with options of list display, links, pagination, editable, etc...
-Register category and create Category_admin
-```
+5.  Apply database migrations:
+    ```bash
+    python manage.py migrate
 
-Inside settings
+6. Start the server:
+    ```bash
+    python manage.py runserver
 
-```
-STATIC_ROOT = BASE_DIR / 'static'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+7. Access the application at http://127.0.0.1:8000
 
-Add to templates base_templates
-```
-
-Execute python manage.py collectstatic
-
-Add to gitignore 
-
-```
-static/
-media/
-```
-
-Inside urls of the project
-
-```
-from django.conf.urls.static import static
-from django.conf import settings
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-```
-install faker and execute script of utils to create 1000 contact in the planner
-
-Create in project
-```
-local_settings.py to local files that cant go to github so put in gitignore
-```
-Create file of style.css inside base_static/global/css
-
-Inside settings
-
-STATICFILES_DIRS = [BASE_DIR / 'base_static']
-
-Create base.html inside base_templates/global
-
-In the file base.html create a main with class content (A class of styling within style.css)
-Create a block with content
-Inside the head create a link with rel stylesheet and href static of global/css/style.css
-
-Inside contact.views.py
-
-```
-Import the Contact, inside the function index create a variable contacts = Contact.filter(show=True).order_by('-id')
-And create a variable context = {'contacts' : 'contacts'}
-return render(request, 'contact/index.html', context)
-```
-
-Inside index.html
-
-```
-
-Extends from base, create a block content with a div responsible-table
-then create a table with contacts-table
-the caption is 'Planner' (table-caption)
-
-The head is with a table row (table-row table-row-header)
-and with 5 table headers(table-header) id, fn, ln, phone, email
-
-And the body is using for from django to get the contact from contacts
-Using a table row(table-row) you will make a table date(table-cel) with a anchor(table-link)
+Contributions
+Feel free to fork the project and contribute with improvements!
 
 
-
-
-
-
-
-Criar uma div com a class "responsive-table" 
-Dentro da div criar uma table com classe "contacts-table"
-Dentro da table criar uma caption com classe "table-caption" com título 'Contacts'
-
-Dentro de table criar um thead
-Dentro de thead criar tr com classe "table-row table-row-header"
-Dentro de tr criar 5 th com classe "table-header" id, fn, ln, phone, email
-
-Dentro de table criar tbody
-dentro tbody criar {% for contact in contacts%}
-dentro de for criar tr classe "table-row"
-dentro tr criar td class "table-cel"
-dentro de td criar <a> class "table-link"
-por fim dentro de a colocar os dados {{contact.}}
-fazer 5x
-
-
-
-
-Criar contact.html dentro de templates/contact
-deve extender de base e ter um block content
-com div single-contact dentro h1 single-contact-name e {{contact.fn}}{{contact.ln}}
-E dentro da div ter <p><b>ID:</b> {{contact.id}}</p> p/ tds os models
-
-nas views criar funcao contact com parametro contact_id, com variavel single_contact com queryset GET
-nas urls add novo path p/ contact com '<int:contact_id>/'
-
-dentro de index.html em cada href {% url 'contact:contact' contact.id %}
-
-Trocar no contact views single_contact = get_object_or_404(Contact, id=contact_id, show=True)
-```
+Acknowledgments
+I would like to thank Luiz Otávio Miranda for the excellent course that helped me develop this project.

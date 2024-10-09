@@ -1,5 +1,5 @@
 markdown
-Copiar código
+
 # Agenda de Contatos
 
 Este é um projeto de agenda de contatos desenvolvido com Django, como parte do curso do Luiz Otávio Miranda. O objetivo do projeto é permitir que os usuários se registrem, façam login e gerenciem seus contatos de forma simples e eficiente.
@@ -33,32 +33,30 @@ Para rodar o projeto localmente, siga os passos abaixo:
    git clone https://github.com/GustavOxys/Agenda.git
 Navegue até o diretório do projeto:
 
-bash
-Copiar código
-cd agenda
-Crie um ambiente virtual e ative-o:
+2. Navegue até o diretorio do projeto:
+    ```bash
+    cd agenda
 
-bash
-Copiar código
-python -m venv venv
-source venv/bin/activate  # Para Linux/Mac
-venv\Scripts\activate  # Para Windows
-Instale as dependências:
+3. Crie um ambiente virtual e ative-o:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # Para Linux/Mac
+    venv\Scripts\activate  # Para Windows
 
-bash
-Copiar código
-pip install -r requirements.txt
-Faça as migrações do banco de dados:
+4. Instale as dependências:
+    ```bash
+    pip install -r requirements.txt
 
-bash
-Copiar código
-python manage.py migrate
-Inicie o servidor:
+5. Faça as migrações do banco de dados:
+    ```bash
+    python manage.py migrate
 
-bash
-Copiar código
-python manage.py runserver
-Acesse a aplicação em http://127.0.0.1:8000
+6. Inicie o servidor:
+
+    ```bash
+    python manage.py runserver
+
+7. Acesse a aplicação em http://127.0.0.1:8000
 
 Contribuições
 Sinta-se à vontade para fazer um fork do projeto e contribuir com melhorias!
@@ -66,5 +64,4 @@ Sinta-se à vontade para fazer um fork do projeto e contribuir com melhorias!
 Licença
 Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
 
-Agradecimentos
 Agradeço ao Luiz Otávio Miranda pelo excelente curso que me ajudou a desenvolver este projeto.

@@ -31,7 +31,7 @@ Para rodar o projeto localmente, siga os passos abaixo:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/GustavOxys/Agenda.git
-Navegue até o diretório do projeto:
+
 
 2. Navegue até o diretorio do projeto:
     ```bash
